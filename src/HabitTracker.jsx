@@ -148,6 +148,17 @@ const HabitTracker = () => {
     return date.getDate().toString().padStart(2, '0');
   };
 
+  const calculateWeeklyProgress = (habit) => {
+    const currentWeekData = habit.weeks[currentWeek] || [];
+    const completedDays = currentWeekData.filter(day => day > 0).length;
+    return (completedDays / 7) * 100;
+  };
+
+  const getCompletedDays = (habit) => {
+    const currentWeekData = habit.weeks[currentWeek] || [];
+    return currentWeekData.filter(day => day > 0).length;
+  };
+
   return (
     <div className="habit-tracker">
       <div className="add-habit">
@@ -169,20 +180,37 @@ const HabitTracker = () => {
           <div className="habit-name">
             {habit.name} <span className="total-days">({calculateTotalDays(habit)} days)</span>
           </div>
-          <div className="habit-squares">
-            {days.map((day, dayIndex) => (
-              <div key={dayIndex} className="day-column">
-                <div className="day-label">{getDateForDay(dayIndex)}</div>
-                <div className="day-label">{day}</div>
-                <div
-                  className={`habit-square ${levels[habit.weeks[currentWeek]?.[dayIndex] || 0]}`}
-                  onClick={() => handleClick(habitIndex, dayIndex)}
-                />
+          <div className="habit-data">
+            <div className="habit-squares">
+              {days.map((day, dayIndex) => (
+                <div key={dayIndex} className="day-column">
+                  <div className="day-label">{getDateForDay(dayIndex)}</div>
+                  <div className="day-label">{day}</div>
+                  <div
+                    className={`habit-square ${levels[habit.weeks[currentWeek]?.[dayIndex] || 0]}`}
+                    onClick={() => handleClick(habitIndex, dayIndex)}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="progress-section">
+              <div className="progress-label">
+                <span>{getCompletedDays(habit)} of 7</span>
               </div>
-            ))}
+              <div className="progress-bar-container">
+                <div 
+                  className="progress-bar" 
+                  style={{ width: `${calculateWeeklyProgress(habit)}%` }}
+                ></div>
+                <span className="progress-mark start">0%</span>
+                <span className="progress-mark end">100%</span>
+              </div>
+            </div>
           </div>
-          <button onClick={() => resetWeek(habitIndex)}>Reset Week</button>
-          <button onClick={() => deleteHabit(habitIndex)}>Delete Habit</button>
+          <div className="habit-actions">
+            <button onClick={() => resetWeek(habitIndex)}>Reset Week</button>
+            <button onClick={() => deleteHabit(habitIndex)}>Delete Habit</button>
+          </div>
         </div>
       ))}
       
