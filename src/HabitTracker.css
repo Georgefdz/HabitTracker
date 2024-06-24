@@ -1,0 +1,123 @@
+.habit-tracker {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .add-habit {
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+  .add-habit input {
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .week-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .habit-row {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .habit-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: #333;
+  }
+  
+  .total-days {
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 0.9em;
+    color: #30a14e;
+  }
+  
+  .habit-squares {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .day-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .day-label {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  .habit-square {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .habit-square:hover {
+    transform: scale(1.1);
+  }
+  
+  .none {
+    background-color: #ebedf0;
+  }
+  
+  .easy {
+    background-color: #9be9a8;
+  }
+  
+  .medium {
+    background-color: #40c463;
+  }
+  
+  .hard {
+    background-color: #30a14e;
+  }
+  
+  button {
+    margin-right: 10px;
+    padding: 8px 15px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
