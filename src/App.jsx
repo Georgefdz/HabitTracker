@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <h1>My Habit Tracker</h1>
+    <h1>Habit Tracker</h1>
       <HabitTracker />
     </>
   )
